@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="iso-8859-1">
+    <title>pingR</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="sjcl.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<b>PingR</b><br>
+What is pingR exactly? PingR is a modern pager for the old school nerd/hacker. The service may be compared to the Apple iMessage, which is a encrypted chat service for iFags. There are many differences though. The first one is that pingR was developed in a rush, without much user friendlyness in mind. Besides that, pingR is not very great for the purpose of having conversations. For that you got tons of other free web-based services, like viber. No, the point of pingR is simply to give fellow hackers a message telling them to gtf on irc asap. To send and receive messages you must provide a secret that you also must share with the person receiving the message. If you are a group of hackers working together, there would be a good idea to share a common secret. The reason for this is because I am to lazy to add any other form of security or intelligent design, so at this moment, all messages are transmitted to all user, and shown to everyone with the correct id/nickname. If an imposter uses the same id as your designated recepient, but don't know your secret, all they will see is an encrypted string. The string is encrypted using the <a href="http://crypto.stanford.edu/sjcl/">Stanford Javascript Crypto Library</a>. The string is both encrypted and decrypted client-side, so the server got no idea what content is sent<br><br>
+<table>
+    <tr>
+        <td>Your id</td>
+        <td><input type="text" name="fromId" id="fromId"></td>
+        <td><input type="button" value="Update ID" onclick="idUpdate()"></td>
+    </tr>
+    <tr>
+        <td>Secret</td>
+        <td><input type="text" name="secret" id="secret"></td>
+        <td><input type="button" value="Update secret" onclick="secretUpdate()"></td>
+    </tr>
+    <tr>
+        <td>Recipients id</td>
+        <td><input type="text" name="toId" id="toId"></td>
+    </tr>
+    <tr>
+        <td>Short message to include in ping</td>
+        <td><input type="text" name="message" id="message"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="Ping" onclick="changePing()"></td>
+    </tr>
+</table>
+    <script src="script.js"></script>
+</body>
+</html>
